@@ -15,6 +15,7 @@
 			<div class="col-5">
 				<p class="h3">Crear producto</p>
 				<form th:action="@{/producto/registrar}" th:object="${producto}" method="POST">
+					<input type="hidden" th:field="*{id}"/>
 					<div class="mb-3">
 						<label for="nombre">Nombre del producto:</label>
 						<input th:field="*{nombre}" type="text" class="form-control" id="nombre"/>
@@ -30,10 +31,10 @@
 						<input type="file" class="form-control" id="image"/>-->
 					</div>
 					<div class="form-floating mb-3">
-						<select  class="form-select" th:field="*{categoria}" id="categoria">
-							<option th:each="categoria:${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">hola</option>
+						<select  class="form-select" th:field="*{categoria}" >
+							<option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">hola</option>
 						</select>
-						<label for="categoria">Selecciona una categoria</label>
+						<label>Selecciona una categoria</label>
 					</div>
 					<button class="btn btn-success" type="submit">Crear producto</button>
 				</form>
