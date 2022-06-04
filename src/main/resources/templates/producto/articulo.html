@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="components/header :: head(~{::title})">
+<meta charset="UTF-8">
+<title>Articulo</title>
+</head>
+<body>
+	<nav data-th-replace="components/header :: _navbar"></nav>
+	
+	<div class="container">
+		<div class="row mt-5" >
+			<div class="col-12 text-center my-5">
+				<p class="h2 text-warning fw-bold" data-th-text="${producto.nombre}"></p>
+			</div>
+			<div class="row">
+			<div class="col-6">
+				<img alt="" class="img-thumbnail" data-th-src="@{/producto/image/{id}(id=${producto.id})}" >
+			</div>
+			<div class="col-6 d-flex align-items-center">
+				<p class="fs-5 " data-th-text="${producto.descripcion}"></p>
+			</div>
+			<div class="row">
+				<div class="col-12 mt-3 text-center">
+					<p class="h3 text-primary">Precio $ <span class="h3" data-th-text="${producto.precio}"></span></p>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+	<footer data-th-replace="components/header :: _footer"></footer>
+</body>
+</html>

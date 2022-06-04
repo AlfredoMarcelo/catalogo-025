@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -27,9 +28,13 @@ public class Producto {
 	private int id;
 	@Column(nullable = false)
 	private String nombre;
-	private String image;
 	@Column(nullable = false)
 	private String descripcion;
+	@Column(nullable = false)
+	private double precio;
 	@ManyToOne
 	private Categoria categoria;
+	private String tipo;
+	@Lob
+	private byte[] datos;
 }
